@@ -190,24 +190,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void openCashBox() {
         if (mPrinter == null) {
-            showStatus("打印机未连接");
+            showStatus("Printer is not connected");
             return;
         }
 
         new Thread(() -> {
             try {
                 //mPrinter.openCashBoxTSPL(1,0);
-                mPrinter.openCashbox(true,false);//这个是用来打开钱箱的
+                mPrinter.openCashbox(true,false);//This is used to open the cash box
 //                mPrinter.beepTSPL(2,3);
             //    mPrinter.ringBuzzer(3);
             //    mPrinter.printSelfTestTSPL();
                 runOnUiThread(() -> {
-                    showStatus("钱箱已打开");
-                    Toast.makeText(MainActivity.this, "钱箱已打开", Toast.LENGTH_SHORT).show();
+                    showStatus("The cash box is open.");
+                    Toast.makeText(MainActivity.this, "The cash box is open.", Toast.LENGTH_SHORT).show();
                 });
             } catch (Exception e) {
                 runOnUiThread(() ->
-                        showStatus("开钱箱失败: " + e.getMessage()));
+                        showStatus("Cash drawer failed to open: " + e.getMessage()));
                 e.printStackTrace();
             }
         }).start();

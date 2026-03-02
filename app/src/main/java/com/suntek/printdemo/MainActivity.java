@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     byte[] gb2312Command = new byte[]{0x1B, 0x28, 0x43, 0x3};
                     mPrinter.sendBytesData(gb2312Command);
 
-                    String msg = "\n";
+                    String msg = "add more test message copy test Test TTTT TTTTT 666666666 8888888888 999999999\n";
                     mPrinter.printText(msg);
 
                     runOnUiThread(() -> {
